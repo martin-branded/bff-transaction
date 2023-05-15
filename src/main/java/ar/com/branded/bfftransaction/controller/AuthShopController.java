@@ -1,29 +1,25 @@
 package ar.com.branded.bfftransaction.controller;
 
-import ar.com.branded.bfftransaction.service.SaveShopByCode;
+import ar.com.branded.bfftransaction.model.domain.Auth;
+import ar.com.branded.bfftransaction.service.GenerateCodeShop;
 import jakarta.annotation.Resource;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.util.logging.Logger;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("/auth")
-@RestController
+@Controller
 public class AuthShopController {
 
-    @Resource(name="saveShop")
-    private SaveShopByCode saveShopByCode;
+    @Resource(name="generateCodeShop")
+    private GenerateCodeShop generateCodeShop;
 
 
     @GetMapping()
-    public ResponseEntity<?> createShopUser(@RequestParam String code){
-        saveShopByCode.execute(code);
-        return new ResponseEntity<>(HttpStatus.CREATED);
+    public String getCodeShopUser(@RequestParam String code, Model model) {
+        Auth auth = generateCodeShop.execute(code);
+        model.addAttribute("code", auth.getCode());
+        return "CodeConfirmation";
     }
+
 }

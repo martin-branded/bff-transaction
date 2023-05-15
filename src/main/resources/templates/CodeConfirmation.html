@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Branded Social Magazine | Código de Verificación</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+        }
+
+        .container h1 {
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .container p {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .code {
+            font-size: 2.5em;
+            background-color: #f8f8f8;
+            padding: 20px;
+            border-radius: 5px;
+            color: #333;
+            letter-spacing: 2px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .container a {
+            text-decoration: none;
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1.2em;
+        }
+
+        .container a:hover {
+            background-color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>¡Bienvenido a Branded Social Magazine!</h1>
+        <p>Has completado el proceso de conexión con éxito. Aquí tienes tu código de validación:</p>
+        <div class="code" th:text="${code}">
+
+        </div>
+        <p>Puedes copiar este código y pegarlo en la aplicación para completar el proceso de validación.</p>
+        <a href="#">Copiar Código</a>
+    </div>
+</body>
+</html>
