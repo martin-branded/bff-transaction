@@ -6,8 +6,10 @@ import ar.com.branded.bfftransaction.repository.impl.rest.GenerateTokenTiendaNub
 import ar.com.branded.bfftransaction.repository.impl.rest.GetProductsTiendaNube;
 import ar.com.branded.bfftransaction.service.GenerateCodeShop;
 import ar.com.branded.bfftransaction.service.GenerateUserShop;
+import ar.com.branded.bfftransaction.service.GetPageableLooks;
 import ar.com.branded.bfftransaction.service.impl.GenerateCodeShopService;
 import ar.com.branded.bfftransaction.service.impl.GenerateUserShopService;
+import ar.com.branded.bfftransaction.service.impl.GetPageableLooksService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -71,4 +73,9 @@ public class AplicationContextConfig {
     public SaveProducts saveProduct(JdbcTemplate jdbcTemplate){return new SaveProductsSupabase(jdbcTemplate);}
     @Bean(name = "saveProductDetails")
     public SaveProductsDetails saveProductDetails(JdbcTemplate jdbcTemplate){return new SaveProductDetailsSupabase(jdbcTemplate);}
+    @Bean(name = "getPageableLooks")
+    public GetPageableLooks getPageableLooks(){return new GetPageableLooksService();}
+    @Bean(name = "retriverLooks")
+    public RetriverLooks retriverLooks(JdbcTemplate jdbcTemplate){return new RetriverLooksSupabase(jdbcTemplate);}
+
 }
