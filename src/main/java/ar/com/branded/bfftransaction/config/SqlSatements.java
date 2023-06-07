@@ -16,6 +16,7 @@ public class SqlSatements {
     public static String UPSERT_PRODUCTS_SQL = getSql("upsertProduct");
     public static String UPSERT_PRODUCTS_DETAILS_SQL = getSql("upsertProductDetails");
     public static String UPDATE_RELATION_USER_TOKEN_SQL = getSql("updateRelationUserToken");
+    public static String RETRIVER_PAGEABLE_LOOK_SQL = getSql("retriverPageableLooks");
 
     private static String getSql(String fileName) {
         String pathResource = "src/main/resources/static/querys/";
