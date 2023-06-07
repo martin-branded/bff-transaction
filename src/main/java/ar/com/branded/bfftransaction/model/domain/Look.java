@@ -1,8 +1,4 @@
 package ar.com.branded.bfftransaction.model.domain;
-
-import java.time.LocalDateTime;
-import java.util.UUID;
-
 public class Look {
     private String lookId;
     private String photo;
